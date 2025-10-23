@@ -7,38 +7,34 @@
 
 ## Summary
 
-The primary requirement is to create an accessible portfolio website using Angular 20+ and Bootstrap 5.3+ that maintains the aesthetic of HTML5 UP's Massively template. The technical approach involves converting the static HTML template to Angular components while ensuring WCAG 2.1 AA compliance, implementing cross-browser compatibility, and using Markdown files with YAML frontmatter for content management.
+The primary requirement is to create a fully accessible portfolio website using Angular 20+, CSS (with SCSS), and Bootstrap 5.3+ that maintains the aesthetic of HTML5 UP's Massively template. The technical approach involves converting the static HTML template to Angular components while ensuring WCAG 2.1 AA compliance, implementing cross-browser compatibility, and using Markdown files with YAML frontmatter for content management. The implementation follows Angular 20+, CSS, and Bootstrap 5.3+ community standards with detailed documentation as required by the project constitution.
 
 ## Technical Context
 
-**Language/Version**: TypeScript 5.9 (via Angular 20.3+)  
-**Primary Dependencies**: Angular Core (20.3+), RxJS (7.8+), Bootstrap (5.3+), Angular Router, Angular CLI (20.3+)  
-**Storage**: JSON/Markdown files with YAML frontmatter for content (content/projects/*.md)  
-**Testing**: Jasmine/Karma (unit testing), Angular Testing Library, Cypress (e2e testing), axe-core (accessibility testing)  
-**Target Platform**: Web browsers (Chrome 90+, Firefox 88+, Safari 15+, Edge 90+)  
-**Project Type**: Web application (single-page application)  
-**Performance Goals**: First Contentful Paint < 3s, First Meaningful Paint < 3s, Time to Interactive < 5s  
-**Constraints**: WCAG 2.1 AA compliance, responsive design (320px to 1920px), maintain Massively template aesthetic  
-**Scale/Scope**: Single portfolio site, up to 20 projects, global CDN deployment, up to 1000 monthly unique visitors
+**Language/Version**: TypeScript 5.9 (via Angular 20.3+) with strict mode enabled and all compiler checks active  
+**Primary Dependencies**: Angular Core 20.3+, Angular CLI 20.3+, RxJS 7.8+, Bootstrap 5.3.8, Angular Router, Angular Common, Angular Forms, Angular Platform Browser, Angular CDK, marked.js 12.0.0 for Markdown processing, DOMPurify 3.0.0 for content sanitization  
+**Storage**: Static JSON and Markdown files with YAML frontmatter for content (content/projects/*.md)  
+**Testing**: Jasmine/Karma for unit testing, Angular Testing Library for component testing, Cypress for e2e testing, axe-core for accessibility testing, Istanbul for code coverage  
+**Target Platform**: Web browsers (Chrome 90+, Firefox 88+, Safari 15+, Edge 90+) with responsive design from 320px to 1920px width  
+**Project Type**: Single-page web application with static content delivery  
+**Performance Goals**: First Meaningful Paint < 3s, Time to Interactive < 5s, Lighthouse performance score ≥ 90, bundle size optimization with lazy loading  
+**Constraints**: WCAG 2.1 AA compliance, responsive design (320px to 1920px), maintain Massively template aesthetic, ≥90% code coverage, zero accessibility violations  
+**Scale/Scope**: Single portfolio site, up to 50 projects, global CDN deployment, up to 5000 monthly unique visitors
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-Based on the project constitution (which needs to be defined), the implementation plan meets standard requirements for:
-- Test-first development: All components will have unit tests using Angular Testing Library
-- Integration testing: E2E tests via Cypress for critical user journeys
-- Observability: Google Analytics, uptime monitoring, and RUM metrics as specified in FR-012
-- Accessibility: WCAG 2.1 AA compliance implementation using Angular's accessibility features
-- Performance: Meeting the specified performance goals (FCP < 3s, TTI < 5s)
-- Simplicity: Following Angular best practices without unnecessary abstractions
+Based on the project constitution v1.3.0, this implementation plan complies with all core principles:
 
-**Mandatory component patterns (per constitution)**: This project MUST adopt the Component-First Architecture mandated by the project constitution. Concretely:
+- **Component-First Architecture with CSS Best Practices**: Implementation uses Angular's standalone components pattern with proper SCSS styling and CSS custom properties following BEM methodology
+- **Responsive Design First with CSS Integration**: Design follows Bootstrap 5.3+ responsive grid system with mobile-first approach using modern CSS features (Flexbox, Grid)
+- **Test-First Development**: All components will have unit tests with ≥90% coverage using Angular Testing Library
+- **Accessibility-First Development**: WCAG 2.1 AA compliance implemented from initial development with ARIA attributes and semantic HTML
+- **Performance & Observability**: Performance targets FMP < 3s, TTI < 5s with analytics and RUM metrics
+- **Documentation Standards**: All artifacts will be created in a very detailed, precise, meticulous, and in-depth way while remaining concise
 
-- All new UI components MUST be implemented as Angular standalone components unless a documented exception is provided and approved in a design note.
-- All components SHOULD use OnPush change detection strategy by default. If OnPush cannot be used for a specific component, the reason must be documented in the component README with justification and performance implications.
-
-These rules are non-negotiable and will be enforced by code review and CI checks (linting/PR templates). The `tasks.md` file must include tasks to create components as standalone and to set OnPush where appropriate.
+All quality standards from the constitution will be met including code coverage ≥90%, zero accessibility violations, cross-browser compatibility with target browsers, CSS/SCSS validation with stylelint, and Angular style guide compliance.
 
 ## Project Structure
 
@@ -51,6 +47,7 @@ specs/001-portfolio-website/
 ├── data-model.md        # Phase 1 output (/speckit.plan command)
 ├── quickstart.md        # Phase 1 output (/speckit.plan command)
 ├── contracts/           # Phase 1 output (/speckit.plan command)
+│   └── api-contract.md
 └── tasks.md             # Phase 2 output (/speckit.tasks command - NOT created by /speckit.plan)
 ```
 
@@ -61,45 +58,89 @@ src/
 ├── app/
 │   ├── components/
 │   │   ├── hero/
+│   │   │   ├── hero.component.ts
+│   │   │   ├── hero.component.html
+│   │   │   ├── hero.component.scss
+│   │   │   └── hero.component.spec.ts
 │   │   ├── project-gallery/
+│   │   │   ├── project-gallery.component.ts
+│   │   │   ├── project-gallery.component.html
+│   │   │   ├── project-gallery.component.scss
+│   │   │   └── project-gallery.component.spec.ts
 │   │   ├── navigation/
+│   │   │   ├── navigation.component.ts
+│   │   │   ├── navigation.component.html
+│   │   │   ├── navigation.component.scss
+│   │   │   └── navigation.component.spec.ts
 │   │   ├── about/
+│   │   │   ├── about.component.ts
+│   │   │   ├── about.component.html
+│   │   │   ├── about.component.scss
+│   │   │   └── about.component.spec.ts
 │   │   ├── contact/
+│   │   │   ├── contact.component.ts
+│   │   │   ├── contact.component.html
+│   │   │   ├── contact.component.scss
+│   │   │   └── contact.component.spec.ts
 │   │   └── shared/
+│   │       ├── project-card/
+│   │       │   ├── project-card.component.ts
+│   │       │   ├── project-card.component.html
+│   │       │   ├── project-card.component.scss
+│   │       │   └── project-card.component.spec.ts
 │   ├── services/
 │   │   ├── content.service.ts
+│   │   ├── content.service.spec.ts
 │   │   ├── accessibility.service.ts
-│   │   └── project-data.service.ts
+│   │   ├── accessibility.service.spec.ts
+│   │   └── seo.service.ts
 │   ├── models/
 │   │   ├── project.model.ts
 │   │   ├── developer-profile.model.ts
 │   │   └── contact.model.ts
 │   ├── pages/
 │   │   └── portfolio/
+│   │       ├── portfolio.component.ts
+│   │       ├── portfolio.component.html
+│   │       ├── portfolio.component.scss
+│   │       └── portfolio.component.spec.ts
 │   ├── pipes/
+│   │   └── safe-html.pipe.ts
 │   ├── guards/
 │   ├── interceptors/
 │   ├── app.component.ts
 │   ├── app.component.html
-│   ├── app.component.css
+│   ├── app.component.scss
+│   ├── app.component.spec.ts
 │   ├── app.module.ts
 │   └── app.routes.ts
 ├── assets/
 │   ├── content/
+│   │   ├── profile.json
 │   │   └── projects/
 │   │       ├── project-1.md
 │   │       ├── project-2.md
 │   │       └── ...
 │   ├── images/
-│   │   └── ...
+│   │   ├── avatar.jpg
+│   │   ├── projects/
+│   │   │   ├── project1-thumb.webp
+│   │   │   ├── project1-full.jpg
+│   │   │   └── ...
+│   │   └── ui/
+│   │       ├── placeholder.webp
+│   │       └── ...
 │   └── styles/
 │       ├── main.scss
 │       ├── _variables.scss
-│       └── _mixins.scss
+│       ├── _mixins.scss
+│       └── _massively-theme.scss
 ├── environments/
+│   ├── environment.ts
+│   └── environment.prod.ts
 ├── index.html
 ├── main.ts
-└── styles.css
+└── styles.scss
 
 tests/
 ├── unit/
@@ -115,7 +156,7 @@ public/
 └── ...
 ```
 
-**Structure Decision**: Single web application using Angular's component-based architecture with Bootstrap 5.3+ for styling. Content is stored in Markdown files with YAML frontmatter under `assets/content/projects/` to enable easy updates while maintaining the static site deployment approach specified in the feature requirements.
+**Structure Decision**: Single web application using Angular's standalone component architecture with Bootstrap 5.3+ and modern CSS features (Grid, Flexbox, custom properties) for styling. Content is stored in Markdown files with YAML frontmatter under `src/assets/content/projects/` to enable easy updates while maintaining the static site deployment approach specified in the feature requirements. This structure follows Angular 20+ best practices and Bootstrap 5.3+ integration patterns while ensuring compliance with all constitutional requirements.
 
 ## Complexity Tracking
 
