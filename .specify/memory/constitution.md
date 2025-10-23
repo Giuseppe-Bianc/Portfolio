@@ -1,8 +1,8 @@
 <!-- 
 SYNC IMPACT REPORT:
-Version change: 1.0.0 → 1.1.0
-Modified principles: I, II, III, IV, V (enhanced with Angular 20+ and Bootstrap 5.3+ specific guidelines)
-Added sections: None
+Version change: 1.1.0 → 1.2.0
+Modified principles: None
+Added sections: VI. Documentation Standards (detailed documentation requirements)
 Removed sections: None
 Templates requiring updates: 
 - ✅ .specify/templates/plan-template.md - No changes needed
@@ -65,8 +65,17 @@ All features must meet performance targets: First Meaningful Paint < 3s, Time to
 - Cross-browser testing must validate functionality
 - Template validation: no inline styles, proper input/output usage
 
+### VI. Documentation Standards
+- All code must be documented in a very detailed, precise, meticulous, and in-depth way while remaining concise
+- All documentation artifacts (research.md, quickstart.md, data-model.md, and any other docs) must be created in a very detailed, precise, meticulous, and in-depth way
+- Use TypeScript JSDoc comments for all public methods, interfaces, and classes with @param, @returns, and @description tags
+- Feature specifications must include detailed user scenarios and edge cases
+- Implementation plans must include detailed technical context and architecture decisions
+- Document decision rationales for all significant implementation choices
+- Follow Angular documentation standards and maintain consistency across all documentation artifacts
+
 ## Governance
 
 All pull requests and code reviews must verify compliance with these principles and Angular 20+/Bootstrap 5.3+ community standards. New features must align with the component-first architecture and accessibility-first approach. Complexity must be justified with clear user value. Use QWEN.md for runtime development guidance.
 
-**Version**: 1.1.0 | **Ratified**: 2025-10-23 | **Last Amended**: 2025-10-23
+**Version**: 1.2.0 | **Ratified**: 2025-10-23 | **Last Amended**: 2025-10-23
