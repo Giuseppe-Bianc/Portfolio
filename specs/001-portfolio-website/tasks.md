@@ -7,7 +7,8 @@ description: "Task list for portfolio website implementation"
 **Input**: Design documents from `/specs/001-portfolio-website/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-**Tests**: Tests are included as specified in the feature requirements, including accessibility tests for WCAG 2.1 AA compliance.
+**Tests (MANDATORY - TDD)**: Tests are included as specified in the feature requirements and are MANDATORY per the project constitution. All tests (unit, accessibility, integration, e2e) must be written first and fail before implementation (Red). Implementation proceeds only after creating tests that initially fail, then making them pass (Red-Green-Refactor).
+CI MUST enforce test execution and coverage thresholds (see tasks T082-T084 added below).
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -60,9 +61,9 @@ description: "Task list for portfolio website implementation"
 
 **Independent Test**: Can be fully tested by visiting the homepage and verifying the hero section displays properly with background image, title, and navigation. Delivers the core value of presenting the developer's identity and work effectively.
 
-### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 1 (MANDATORY - TDD required)
 
-> **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
+> **NOTE: Tests MUST be written FIRST and must FAIL prior to implementation.** Follow Red-Green-Refactor and ensure tests are present in repository and referenced in CI before implementation begins.
 
 - [ ] T015 [P] [US1] Accessibility test for hero section WCAG 2.1 AA compliance in tests/accessibility/hero-section.spec.ts
 - [ ] T016 [P] [US1] Unit test for hero component in tests/unit/components/hero/hero.component.spec.ts
@@ -87,7 +88,7 @@ description: "Task list for portfolio website implementation"
 
 **Independent Test**: Can be fully tested by browsing the project gallery and viewing project details. Delivers the value of showing concrete examples of the developer's work.
 
-### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 2 (MANDATORY - TDD required)
 
 - [ ] T024 [P] [US2] Accessibility test for gallery WCAG 2.1 AA compliance in tests/accessibility/project-gallery.spec.ts
 - [ ] T025 [P] [US2] Unit test for project gallery component in tests/unit/components/project-gallery/project-gallery.component.spec.ts
@@ -115,7 +116,7 @@ description: "Task list for portfolio website implementation"
 
 **Independent Test**: Can be fully tested by navigating between sections on different devices and verifying all content is accessible. Delivers the value of making the portfolio usable across all platforms.
 
-### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 3 (MANDATORY - TDD required)
 
 - [ ] T036 [P] [US3] Responsive navigation test in tests/unit/components/navigation/navigation.component.spec.ts
 - [ ] T037 [P] [US3] Accessibility test for navigation keyboard controls in tests/accessibility/navigation.spec.ts
@@ -142,7 +143,7 @@ description: "Task list for portfolio website implementation"
 
 **Independent Test**: Can be fully tested by viewing the about section and reading the developer's profile. Delivers the value of establishing the developer's qualifications and background.
 
-### Tests for User Story 4 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 4 (MANDATORY - TDD required)
 
 - [ ] T047 [P] [US4] Unit test for about component in tests/unit/components/about/about.component.spec.ts
 - [ ] T048 [P] [US4] Accessibility test for about section in tests/accessibility/about-section.spec.ts
@@ -169,7 +170,7 @@ description: "Task list for portfolio website implementation"
 
 **Independent Test**: Can be fully tested by viewing contact information and attempting to use contact methods. Delivers the value of enabling communication between visitors and the developer.
 
-### Tests for User Story 5 (OPTIONAL - only if tests requested) ⚠️
+### Tests for User Story 5 (MANDATORY - TDD required)
 
 - [ ] T058 [P] [US5] Unit test for contact component in tests/unit/components/contact/contact.component.spec.ts
 - [ ] T059 [P] [US5] Accessibility test for contact section in tests/accessibility/contact-section.spec.ts
@@ -207,7 +208,6 @@ description: "Task list for portfolio website implementation"
 - [ ] T079 [P] Cross-browser compatibility testing
 - [ ] T080 [P] Final integration tests across all user stories
 - [ ] T081 [P] Build for production and validate functionality
-
 ---
 
 ## Dependencies & Execution Order

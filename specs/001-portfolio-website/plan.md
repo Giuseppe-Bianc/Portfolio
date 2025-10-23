@@ -33,6 +33,13 @@ Based on the project constitution (which needs to be defined), the implementatio
 - Performance: Meeting the specified performance goals (FCP < 3s, TTI < 5s)
 - Simplicity: Following Angular best practices without unnecessary abstractions
 
+**Mandatory component patterns (per constitution)**: This project MUST adopt the Component-First Architecture mandated by the project constitution. Concretely:
+
+- All new UI components MUST be implemented as Angular standalone components unless a documented exception is provided and approved in a design note.
+- All components SHOULD use OnPush change detection strategy by default. If OnPush cannot be used for a specific component, the reason must be documented in the component README with justification and performance implications.
+
+These rules are non-negotiable and will be enforced by code review and CI checks (linting/PR templates). The `tasks.md` file must include tasks to create components as standalone and to set OnPush where appropriate.
+
 ## Project Structure
 
 ### Documentation (this feature)
