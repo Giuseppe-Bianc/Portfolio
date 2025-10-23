@@ -2,7 +2,7 @@
   
 **Purpose**: Validate specification completeness and quality before proceeding to planning
 **Created**: 23-10-2025
-**Feature**: C:\dev\portfolio\Portfolio\specs\001-portfolio-website\spec.md
+**Feature**: ../spec.md
   
 ## Content Quality
   
